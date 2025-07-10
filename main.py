@@ -4,25 +4,24 @@ from screenmessage import display_message
 from prime import checkPrime
 from palindrome import checkPalindrome
 from denominator import highest_denominator
+from reorder import reorder_words
+from reverse import reverse_each_word
 
-pygame.init()
-screen = pygame.display.set_mode((1600, 800))
-clock = pygame.time.Clock()
-running = True
 
 isThisPrime = 31
 myString = "racecar"
 first_number = 15
 second_number = -12
+order_string = "Here we have a string that will be reordered"
 
+
+
+
+pygame.init()
+screen = pygame.display.set_mode((1600, 800))
+clock = pygame.time.Clock()
+running = True
 player_speed = 10  # Speed of the player
-
-
-
-x = 300
-y = 300
-width = 100
-height = 100
 
 while running:
     for event in pygame.event.get():
@@ -60,7 +59,14 @@ while running:
 
     position_scene = pygame.draw.rect(screen, (0,0,0), (500, 50, 100, 100), 0)
 
+    position_string = str(reorder_words(order_string))
+    if character.colliderect(position_scene):
+        display_message(screen, "Reordered string is: \"" + position_string + "\"", (800, 400), color=(255, 255, 255), font_size=30)
+
     word_scene = pygame.draw.rect(screen, (0,0,0), (650, 50, 100, 100), 0)
+    word_string = "After reversing each word, the string is \"" + reverse_each_word(order_string) + "\""
+    if character.colliderect(word_scene):
+        display_message(screen, word_string, (800, 400), color=(255, 255, 255), font_size=30)
 
     bubble_scene = pygame.draw.rect(screen, (0,0,0), (800, 50, 100, 100), 0)
 
