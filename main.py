@@ -1,11 +1,7 @@
 import pygame
 from player import player_body, player_body_color, player_speed
 from screenmessage import display_message
-from prime import checkPrime
-from palindrome import checkPalindrome
-from denominator import highest_denominator
-from reorder import reorder_words
-from reverse import reverse_each_word
+from functions import checkPrime, checkPalindrome, highest_denominator, reorder_words, reverse_each_word
 
 
 isThisPrime = 31
