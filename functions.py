@@ -31,3 +31,19 @@ def highest_denominator(first_number, second_number):
         if(first_number < 0):
             first_number = -first_number
         return first_number
+
+def bubble_sort(arr):
+    #copy the array to avoid modifying the original one
+    arr = arr.copy()
+    #implement bubble sort algorithm
+    n = len(arr)
+    isSwapped = True
+    for i in range(n):
+        if not isSwapped:
+            break
+        isSwapped = False
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                isSwapped = True
+    return arr
