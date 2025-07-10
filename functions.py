@@ -87,3 +87,12 @@ def fibonacci(n):
         for _ in range(2, n + 1):
             a, b = b, a + b
         return b
+
+def prime(n):
+    count = 0
+    num = 1
+    while count < n:
+        num += 1
+        if checkPrime(num):
+            count += 1
+    return num
