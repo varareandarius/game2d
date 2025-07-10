@@ -1,7 +1,9 @@
 import pygame
 from player import player_body, player_body_color, player_speed
 from screenmessage import display_message
-from prime import checkPrime  # Assuming checkPrime is defined in prime.py
+from prime import checkPrime
+from palindrome import checkPalindrome
+from denominator import highest_denominator
 
 pygame.init()
 screen = pygame.display.set_mode((1600, 800))
@@ -9,6 +11,9 @@ clock = pygame.time.Clock()
 running = True
 
 isThisPrime = 31
+myString = "racecar"
+first_number = 15
+second_number = -12
 
 player_speed = 10  # Speed of the player
 
@@ -36,11 +41,22 @@ while running:
     prime_scene = pygame.draw.rect(screen, (0,0,0), (50, 50, 100, 100), 0)
 
     if character.colliderect(prime_scene):
-        display_message(screen, "Prime status: " + str(checkPrime(isThisPrime)) , (100, 100), color=(255, 255, 255), font_size=30)
+        display_message(screen, "Number is " + str(isThisPrime) + " having the prime status: " + str(checkPrime(isThisPrime)) , (800, 400), color=(255, 255, 255), font_size=30)
 
     palindrome_scene = pygame.draw.rect(screen, (0,0,0), (200, 50, 100, 100), 0)
+
+    if character.colliderect(palindrome_scene):
+        display_message(screen, "String is " + myString + " having the palindrome status: " + str(checkPalindrome(myString)), (800, 400), color=(255, 255, 255), font_size=30)
     
     denominator_scene = pygame.draw.rect(screen, (0,0,0), (350, 50, 100, 100), 0)
+
+    if( first_number == 0 or second_number == 0):
+        denominator_string = highest_denominator(first_number, second_number)
+    else:
+        denominator_string = "For " + str(first_number) + " and " + str(second_number) + " the highest common denominator is " + str(highest_denominator(first_number, second_number))
+
+    if character.colliderect(denominator_scene):
+        display_message(screen, denominator_string, (800, 400), color=(255, 255, 255), font_size=30)
 
     position_scene = pygame.draw.rect(screen, (0,0,0), (500, 50, 100, 100), 0)
 
