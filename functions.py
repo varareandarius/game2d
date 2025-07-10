@@ -33,9 +33,8 @@ def highest_denominator(first_number, second_number):
         return first_number
 
 def bubble_sort(arr):
-    #copy the array to avoid modifying the original one
     arr = arr.copy()
-    #implement bubble sort algorithm
+
     n = len(arr)
     isSwapped = True
     for i in range(n):
@@ -47,3 +46,33 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
                 isSwapped = True
     return arr
+
+def merge(left, right):
+    result = []
+    indexLeft = indexRight = 0
+    while indexLeft < len(left) and indexRight < len(right):
+        if left[indexLeft] < right[indexRight]:
+            result.append(left[indexLeft])
+            indexLeft += 1
+        else:
+            result.append(right[indexRight])
+            indexRight += 1
+    result.extend(left[indexLeft:])
+    result.extend(right[indexRight:])
+    return result
+
+def merge_sort(arr):
+    arr = arr.copy()
+
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        left = merge_sort(left_half)
+        right = merge_sort(right_half)
+        
+        finalArr = merge(left, right)
+        return finalArr
+    else:
+        return arr
