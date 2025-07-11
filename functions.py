@@ -118,3 +118,18 @@ def frequency(text):
     for word in words:
         word_freq[word] = word_freq.get(word, 0) + 1
     return char_freq, word_freq
+
+#Explicit power implementation with log n time complexity
+def power(base, exponent):
+    if exponent < 0:
+        return 1 / power(base, -exponent)
+    elif exponent == 0:
+        return 1
+    elif exponent == 1:
+        return base
+    else:
+        half_power = power(base, exponent // 2)
+        if exponent % 2 == 0:
+            return half_power * half_power
+        else:
+            return half_power * half_power * base
