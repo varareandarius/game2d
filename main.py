@@ -176,9 +176,6 @@ while running:
 
     if character.colliderect(power_scene):
         display_message(screen, power_string, (800, 400), color=(255, 255, 255), font_size=30)
-
-
-    triee_scene = pygame.draw.rect(screen, (0,0,0), (350, 450, 100, 100), 0)
     
 
     # add an X button to the top right corner to close the window
