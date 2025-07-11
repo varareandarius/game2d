@@ -105,3 +105,16 @@ def factorial(n):
         for i in range(2, n + 1):
             result *= i
         return result
+    
+def frequency(text):
+    #function to count the frequency of each character in a string
+    #and also count the frequency of each word in a string
+    char_freq = {}
+    word_freq = {}
+    words = text.split()
+    for char in text:
+        if char.isalnum():
+            char_freq[char] = char_freq.get(char, 0) + 1
+    for word in words:
+        word_freq[word] = word_freq.get(word, 0) + 1
+    return char_freq, word_freq
