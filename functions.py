@@ -3,15 +3,18 @@ def reverse_each_word(input_string):
     reversed_words = [word[::-1] for word in words]
     return ' '.join(reversed_words)
 
+
 def checkPalindrome(string):
     reversed_string = string[::-1]
     return string == reversed_string
+
 
 def reorder_words(input_string):
     # I have to reverse the order of words in the string
     words = input_string.split()
     reversed_words = words[::-1]
     return ' '.join(reversed_words)
+
 
 def checkPrime(num):
     if num <= 1:
@@ -21,20 +24,23 @@ def checkPrime(num):
             return False
     return True
 
+
 def highest_denominator(first_number, second_number):
     if first_number == 0 or second_number == 0:
         return "Denominator is 0, so the division is not possible"
     else:
-        # we need to find the highest common denominator usind first and second number
+        # we need to find the highest common denominator using
+        # first and second number
         while second_number:
-            first_number, second_number = second_number, first_number % second_number
-        if(first_number < 0):
+            first_number, second_number = second_number,
+            first_number % second_number
+        if (first_number < 0):
             first_number = -first_number
         return first_number
 
+
 def bubble_sort(arr):
     arr = arr.copy()
-
     n = len(arr)
     isSwapped = True
     for i in range(n):
@@ -46,6 +52,7 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
                 isSwapped = True
     return arr
+
 
 def merge(left, right):
     result = []
@@ -61,9 +68,9 @@ def merge(left, right):
     result.extend(right[indexRight:])
     return result
 
+
 def merge_sort(arr):
     arr = arr.copy()
-
     if len(arr) > 1:
         mid = len(arr) // 2
         left_half = arr[:mid]
@@ -71,12 +78,12 @@ def merge_sort(arr):
 
         left = merge_sort(left_half)
         right = merge_sort(right_half)
-        
         finalArr = merge(left, right)
         return finalArr
     else:
         return arr
-    
+
+
 def fibonacci(n):
     if n <= 0:
         return 0
@@ -88,6 +95,7 @@ def fibonacci(n):
             a, b = b, a + b
         return b
 
+
 def prime(n):
     count = 0
     num = 1
@@ -97,6 +105,7 @@ def prime(n):
             count += 1
     return num
 
+
 def factorial(n):
     if n == 0 or n == 1:
         return 1
@@ -105,10 +114,11 @@ def factorial(n):
         for i in range(2, n + 1):
             result *= i
         return result
-    
+
+
 def frequency(text):
-    #function to count the frequency of each character in a string
-    #and also count the frequency of each word in a string
+    # function to count the frequency of each character in a string
+    # and also count the frequency of each word in a string
     char_freq = {}
     word_freq = {}
     words = text.split()
@@ -119,7 +129,9 @@ def frequency(text):
         word_freq[word] = word_freq.get(word, 0) + 1
     return char_freq, word_freq
 
-#Explicit power implementation with log n time complexity
+# Explicit power implementation with log n time complexity
+
+
 def power(base, exponent):
     if exponent < 0:
         return 1 / power(base, -exponent)
